@@ -1,15 +1,12 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-# Check if custom config exists in Home Assistant config directory
+CONFIG_FILE_DEFAULT="/app/mihomo-default.yaml"
 CONFIG_FILE="/config/mihomo.yaml"
 if [ ! -f "$CONFIG_FILE" ]; then
-    echo "No custom config found at $CONFIG_FILE, using default config"
-    CONFIG_FILE="/app/mihomo-default.yaml"
+  echo "No custom config at $CONFIG_FILE, using default: $CONFIG_FILE_DEFAULT"
+  CONFIG_FILE="$CONFIG_FILE_DEFAULT"
 fi
 
 echo "Starting Mihomo with config: $CONFIG_FILE"
-
-# Start Mihomo with the selected config
-exec /app/mihomo \
-    --config "$CONFIG_FILE" \
-    --tproxy-port 9898
+exec mihomo --config "$CONFIG_FILE"
