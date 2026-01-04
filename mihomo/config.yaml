@@ -13,6 +13,10 @@ arch:
 startup: application
 boot: auto
 host_network: true
+privileged:
+  - NET_ADMIN
+devices:
+  - /dev/net/tun
 rating: 4
 ports:
   7890/tcp: 7890
