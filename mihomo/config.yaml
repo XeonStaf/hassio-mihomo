@@ -32,3 +32,7 @@ options:
   config_file: "/config/mihomo.yaml"
 schema:
   config_file: "str?"
+map:
+  - type: homeassistant_config
+    read_only: false
+    path: /config
