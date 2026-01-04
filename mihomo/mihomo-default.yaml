@@ -227,7 +227,7 @@ profile:
 
 # TUN configuration
 tun:
-  enable: false
+  enable: true
   stack: system # or gvisor
   # dns-hijack:
   #   - any:53
